@@ -38,7 +38,8 @@ namespace TechJobsConsole
             return values;
         }
 
-
+        
+        // TODO: enable a search to go across all of the columns, and then make it case insensitive
         public static List<Dictionary<string, string>> FindByValue(string column, string value)
         {
             // Load date if not already loaded
@@ -46,17 +47,17 @@ namespace TechJobsConsole
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
-            foreach (Dictionary<string, string> job in AllJobs)
+            foreach (Dictionary<string, string> row in AllJobs)
             {
-                foreach (Dictionary<string, string> row in AllJobs)
-                {
-                string aValue = (string)row[value];
+                //foreach (Dictionary<string, string> row in AllJobs)
+                //{
+                string aValue = row[column];
 
                     if (aValue.Contains(value))
                     {
                         jobs.Add(row);
                     }
-               }
+               //}
             }
             return jobs;
         }
