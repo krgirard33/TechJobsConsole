@@ -49,15 +49,15 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                //foreach (Dictionary<string, string> row in AllJobs)
-                //{
-                string aValue = row[column];
+                foreach (string key in row.Keys)
+                {
+                string aValue = row[key];
 
-                    if (aValue.Contains(value))
+                    if (aValue.ToLower().Contains(value.ToLower()))
                     {
                         jobs.Add(row);
                     }
-               //}
+               }
             }
             return jobs;
         }
